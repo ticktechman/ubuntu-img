@@ -15,9 +15,9 @@ images["ubuntu.img"]="https://cloud-images.ubuntu.com/releases/plucky/release/ub
 
 [[ -d images ]] || mkdir images
 
-# for one in "${!images[@]}"; do
-#   wget -O "./images/$one" "${images[$one]}"
-# done
+for one in "${!images[@]}"; do
+  wget -O "./images/$one" "${images[$one]}"
+done
 
 [[ ! -f "./images/vmlinux.gz" ]] || {
   if gzip -t "./images/vmlinux.gz" 2>/dev/null; then
