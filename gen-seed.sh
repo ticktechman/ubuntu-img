@@ -10,7 +10,7 @@
 
 # === CONFIG ===
 USER_NAME=${1:-ubuntu}
-HOST_NAME=${2:plucky-vm}
+HOST_NAME=${2:-plucky-vm}
 SSH_KEY=${3:-"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINorAKTkV9MgQl7w8OQq7tyL71i+vRbAi2fhxhWihwdB ticktech@ubuntu"}
 
 # Create temporary working directory
