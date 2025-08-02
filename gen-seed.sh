@@ -24,14 +24,15 @@ echo "Working in $CIDATADIR"
 # Create user-data
 cat >"$CIDATADIR/user-data" <<EOF
 #cloud-config
-hostname: plucky-vm
+hostname: "$HOST_NAME"
 users:
   - name: $USER_NAME
     shell: /bin/bash
     groups: sudo
     sudo: ["ALL=(ALL) NOPASSWD:ALL"]
     lock_passwd: False
-    ssh_authorized_keys: "$SSH_KEY"
+    ssh_authorized_keys:
+      - "$SSH_KEY"
     passwd: "$(openssl passwd -6 $USER_NAME)"
 ssh_pwauth: True
 chpasswd:
@@ -51,6 +52,9 @@ ethernets:
   enp0s1:
     dhcp4: true
 EOF
+
+echo "checking user-data..."
+cloud-init schema --config-file ./seed/cidata/user-data
 
 # Create ISO using hdiutil (macOS built-in)
 ISO_NAME="./images/seed.iso"
