@@ -29,4 +29,6 @@ done
   qemu-img convert -O raw ./images/ubuntu.img ./images/root.img
 }
 
+cp ubuntu.json images/
+
 ###############################################################################
