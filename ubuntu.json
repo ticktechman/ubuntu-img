@@ -1,0 +1,11 @@
+{
+  "cpus": 2,
+  "memory": 8192,
+  "kernel": "vmlinux",
+  "initrd": "initrd.img",
+  "storage": [ "root.img" ],
+  "cmdline": "",
+  "shared": [],
+  "network": true,
+  "uefi": true
+}
